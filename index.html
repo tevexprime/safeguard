@@ -188,10 +188,11 @@
             border: none;
         }
 
-        /* Hero Section */
+        /* Hero Section - FIXED */
         .hero {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1600/900') no-repeat center center/cover;
+            height: 85vh; /* Changed from min-height: 100vh */
+            max-height: 800px; /* Added maximum height */
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605106702730-a6de8c7aae15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             text-align: center;
@@ -279,6 +280,9 @@
         .about-features {
             list-style: none;
             margin: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
         .about-features li {
@@ -306,7 +310,7 @@
 
         /* Services Section */
         .services {
-            background: url('/api/placeholder/1600/900') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1563013541-2d2c1c5c20ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
             color: #fff;
             position: relative;
         }
@@ -439,6 +443,7 @@
 
         .features h2, .features .section-subtitle {
             text-align: center;
+            color: var(--primary-color);
         }
 
         .feature-grid {
@@ -582,6 +587,7 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
+            z-index: 0;
         }
 
         .testimonial-content p {
@@ -597,7 +603,6 @@
             padding: 1.5rem 2rem;
             background-color: var(--primary-color);
             color: #fff;
-            flex-wrap: wrap;
         }
 
         .testimonial-image {
@@ -861,7 +866,10 @@
                 padding-right: 0;
             }
             .logo img {
-                max-width: 150px; /* Adjusted logo size for tablet */
+                max-width: 150px;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -907,6 +915,10 @@
                 padding: 1rem 2rem;
             }
             
+            .hero {
+                height: 70vh;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -925,7 +937,7 @@
             }
             
             .logo img {
-                max-width: 120px; /* Adjusted logo size for mobile */
+                max-width: 120px;
             }
             
             .menu-toggle {
@@ -965,7 +977,11 @@
             }
             
             .logo img {
-                max-width: 100px; /* Smaller logo for very small screens */
+                max-width: 100px;
+            }
+            
+            .hero {
+                height: 60vh;
             }
         }
 
