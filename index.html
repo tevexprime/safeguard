@@ -30,6 +30,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: #fff;
+            overflow-x: hidden;
         }
 
         /* Typography */
@@ -124,12 +125,6 @@
             color: #fff;
         }
 
-        .logo img {
-            max-width: 200%;
-            height: auto;
-            transition: var(--transition);
-        }
-
         .logo span {
             margin-left: 0.5rem;
         }
@@ -137,6 +132,7 @@
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
 
         nav ul li {
@@ -188,11 +184,10 @@
             border: none;
         }
 
-        /* Hero Section - FIXED */
+        /* Hero Section */
         .hero {
-            height: 60vh; /* Changed from min-height: 100vh */
-            max-height: 500px; /* Added maximum height */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605106702730-a6de8c7aae15?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1563013541-3a5eb7fc5c14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             text-align: center;
@@ -201,7 +196,7 @@
 
         .hero-content {
             color: #fff;
-            max-width: 300px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
             border-radius: var(--border-radius);
@@ -280,9 +275,6 @@
         .about-features {
             list-style: none;
             margin: 2rem 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
         }
 
         .about-features li {
@@ -310,7 +302,7 @@
 
         /* Services Section */
         .services {
-            background: url('https://images.unsplash.com/photo-1563013541-2d2c1c5c20ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1557318041-1ce374d55ebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
             color: #fff;
             position: relative;
         }
@@ -443,7 +435,6 @@
 
         .features h2, .features .section-subtitle {
             text-align: center;
-            color: var(--primary-color);
         }
 
         .feature-grid {
@@ -587,7 +578,6 @@
             position: absolute;
             top: 1rem;
             left: 1rem;
-            z-index: 0;
         }
 
         .testimonial-content p {
@@ -611,7 +601,6 @@
             border-radius: 50%;
             margin-right: 1rem;
             border: 3px solid var(--secondary-color);
-            object-fit: cover;
         }
 
         .author-info cite {
@@ -772,8 +761,6 @@
 
         .footer-logo img {
             margin-right: 0.5rem;
-            max-width: 100%;
-            height: auto;
         }
 
         .footer-section ul {
@@ -811,6 +798,7 @@
 
         .footer-bottom p {
             margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .footer-links {
@@ -842,13 +830,70 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 1.5rem;
-            }
+        /* Mobile Menu Styles */
+        .mobile-menu-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(13, 43, 69, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
         }
 
+        .mobile-menu-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-nav ul li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav ul li a {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        .mobile-nav .btn-outline {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            padding: 0.75rem 2rem;
+        }
+
+        /* Responsive */
         @media (max-width: 992px) {
             h1 {
                 font-size: 2.5rem;
@@ -865,58 +910,15 @@
             .contact-info {
                 padding-right: 0;
             }
-            .logo img {
-                max-width: 150px;
-            }
-            .about-features {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 768px) {
-            header .container {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            nav {
-                width: auto;
-                margin-top: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(13, 43, 69, 0.95);
-                padding: 1rem 0;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-                transform: translateY(-10px);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-            }
-            
-            nav.active ul {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            nav ul li {
-                margin: 0;
-                text-align: center;
-            }
-            
-            nav ul li a {
+            .menu-toggle {
                 display: block;
-                padding: 1rem 2rem;
             }
             
-            .hero {
-                height: 70vh;
+            nav.desktop-nav {
+                display: none;
             }
             
             .hero h1 {
@@ -936,20 +938,6 @@
                 margin-bottom: 1rem;
             }
             
-            .logo img {
-                max-width: 120px;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        @media (max-width: 576px) {
-            section {
-                padding: 3rem 0;
-            }
-            
             .service-grid, .feature-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
@@ -965,59 +953,32 @@
             
             .footer-links {
                 justify-content: center;
-                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
             }
             
             .hero-content {
                 padding: 1.5rem;
             }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .logo img {
-                max-width: 100px;
-            }
-            
-            .hero {
-                height: 60vh;
-            }
-        }
-
-        /* Mobile Menu Styles */
-        .menu-toggle {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                z-index: 1001;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            nav.active {
-                display: block;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-            }
-            
-            /* Ensure the Client Portal button is visible on mobile */
-            nav ul li:last-child {
-                padding: 1rem;
-                text-align: center;
-            }
-            
-            nav ul li a.btn-outline {
-                display: inline-block;
-                margin: 0.5rem 0;
+            .contact-form {
+                padding: 1.5rem;
             }
         }
 
@@ -1049,55 +1010,22 @@
 
         .back-to-top:hover {
             background-color: var(--primary-color);
-         /* Additional responsive adjustments */
-        @media (max-width: 992px) {
-            .logo img {
-                max-width: 150px;
-            }
-            .hero {
-                height: 50vh;
-                max-height: 400px;
-            }
         }
-        
-        @media (max-width: 768px) {
-            .logo img {
-                max-width: 120px;
-            }
-            .hero {
-                height: 40vh;
-                max-height: 350px;
-            }
-            .hero h1 {
-                font-size: 2rem; /* Reduced font size for mobile */
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .logo img {
-                max-width: 100px;
-            }
-            .hero {
-                height: 35vh;
-                max-height: 300px;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }    
-    }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="https://pbs.twimg.com/media/GlUVXk7XoAA_fbl?format=jpg&name=small" alt="Tevex Prime Guard Security Logo" />
+                <span>
+                    <img alt="Tevex Prime Guard Security Logo" src="https://pbs.twimg.com/media/GlUVXk7XoAA_fbl?format=jpg&name=small" style="width: 120px; height: 96px;" />
+                </span>
             </div>
 
-            <nav id="main-nav">
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
@@ -1106,14 +1034,31 @@
                 </ul>
             </nav>
 
-            <button class="menu-toggle" id="menu-toggle">
+            <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-container" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li><a href="#features" class="mobile-nav-link">Features</a></li>
+                <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+            <a class="btn-outline" href="login.html">Client Portal</a>
+        </nav>
+    </div>
+
     <main>
-        <!-- Rest of your content remains the same -->
         <section class="hero" id="home">
             <div class="container">
                 <div class="hero-content animate">
@@ -1142,9 +1087,7 @@
                         </ul>
                     </div>
                     <div class="about-image animate">
-                        <a href="https://media.istockphoto.com/id/844817032/photo/businessman-opening-a-safety-deposit-box.jpg?s=612x612&w=0&k=20&c=JJK7WHwV4vwGopoNS-qpYVlAXkcTwp4GfgHvaZn45nA=">
-                            <img alt="Security Vault" src="https://media.istockphoto.com/id/844817032/photo/businessman-opening-a-safety-deposit-box.jpg?s=612x612&w=0&k=20&c=JJK7WHwV4vwGopoNS-qpYVlAXkcTwp4GfgHvaZn45nA=" />
-                        </a>
+                        <img alt="Security Vault" src="https://media.istockphoto.com/id/844817032/photo/businessman-opening-a-safety-deposit-box.jpg?s=612x612&w=0&k=20&c=JJK7WHwV4vwGopoNS-qpYVlAXkcTwp4GfgHvaZn45nA=" />
                     </div>
                 </div>
             </div>
@@ -1274,7 +1217,10 @@
                             <div class="contact-item">505 Talbot St #909, London, ON N6A 2S6</div>
                         </div>
                         <div class="social-links">
-                            <!-- Add social media links here if needed -->
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="contact-form animate">
@@ -1318,7 +1264,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img alt="Tevex Logo" src="https://pbs.twimg.com/media/GlUVXk7XoAA_fbl?format=jpg&name=small" />
+                        <img alt="Tevex Logo" src="https://pbs.twimg.com/media/GlUVXk7XoAA_fbl?format=jpg&name=small" style="width: 90px; height: 72px;" />
                         <span>Tevex Prime Guard Security</span>
                     </div>
                     <p>Tevex Prime Guard Security is the industry leader in high-security storage solutions for valuable assets. Your security is our only priority.</p>
@@ -1347,7 +1293,7 @@
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <p>info@tevexprimeguards.us</p>
-                    <p>+46 8 941 486 18</p>
+                    <p>(405) 303-7308</p>
                     <p>123 Secure St, Safetown, ST 12345</p>
                 </div>
             </div>
@@ -1362,83 +1308,87 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="back-to-top">
+    <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </a>
 
     <script>
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const mainNav = document.getElementById('main-nav');
-            
-            // Toggle mobile navigation
-            menuToggle.addEventListener('click', function() {
-                mainNav.classList.toggle('active');
-                
-                // Change icon based on menu state
-                const icon = menuToggle.querySelector('i');
-                if (mainNav.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Header scroll effect
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message. We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
                 }
             });
-            
-            // Close mobile menu when clicking on a link
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        mainNav.classList.remove('active');
-                        const icon = menuToggle.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            });
-            
-            // Back to Top Button
-            const backToTopButton = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.classList.add('active');
-                } else {
-                    backToTopButton.classList.remove('active');
-                }
-            });
-            
-            backToTopButton.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transition = 'opacity 0.5s ease-in-out';
+            observer.observe(element);
         });
     </script>
 </body>
