@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Client Portal - Tevex Prime Guard Security</title>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-	<style type="text/css">:root {
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Client Portal - Tevex Prime Guard Security</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style type="text/css">
+    :root {
       --primary-color: #0d2b45;
       --secondary-color: #c0974c;
       --accent-color: #a3320b;
@@ -30,6 +33,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
     }
 
     /* Typography */
@@ -41,7 +45,7 @@
     }
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
@@ -64,7 +68,7 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1rem;
     }
 
     main {
@@ -87,7 +91,7 @@
     .logo {
       display: flex;
       align-items: center;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
     }
@@ -106,7 +110,7 @@
     }
 
     nav ul li {
-      margin-left: 1.5rem;
+      margin-left: 1rem;
     }
 
     nav ul li a {
@@ -114,6 +118,7 @@
       font-weight: 500;
       padding: 0.5rem 0;
       position: relative;
+      font-size: 0.9rem;
     }
 
     nav ul li a:after {
@@ -133,7 +138,7 @@
 
     /* Login Section */
     .login-section {
-      padding: 5rem 0;
+      padding: 2rem 0;
     }
 
     .login-container {
@@ -150,6 +155,9 @@
     .login-image {
       height: 100%;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .login-image img {
@@ -168,7 +176,7 @@
     }
 
     .login-form-container {
-      padding: 3rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -212,33 +220,25 @@
       position: relative;
     }
 
-    .input-with-icon::before {
+    .input-with-icon i {
       position: absolute;
       left: 1rem;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-light);
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-    }
-
-    .input-with-icon:nth-of-type(1)::before {
-      content: '\f007'; /* User icon */
-    }
-
-    .input-with-icon:nth-of-type(2)::before {
-      content: '\f023'; /* Lock icon */
+      z-index: 1;
     }
 
     .form-group input[type="text"],
     .form-group input[type="password"] {
       width: 100%;
-      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      padding: 1rem 1rem 1rem 2.5rem;
       border: 1px solid #ddd;
       border-radius: var(--border-radius);
       font-family: inherit;
       font-size: 1rem;
       transition: var(--transition);
+      -webkit-appearance: none; /* Remove iOS shadow */
     }
 
     .form-group input:focus {
@@ -252,6 +252,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .remember-me {
@@ -261,6 +262,12 @@
 
     .remember-me input {
       margin-right: 0.5rem;
+      width: 18px;
+      height: 18px;
+    }
+
+    .remember-me label {
+      margin-bottom: 0;
     }
 
     .forgot-password {
@@ -339,15 +346,17 @@
 
     .minimal-footer p {
       margin-bottom: 0;
+      font-size: 0.9rem;
     }
 
     .footer-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .footer-links a {
       color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
@@ -361,17 +370,17 @@
       }
       
       .login-image {
-        display: none;
+        height: 200px;
       }
     }
 
     @media (max-width: 768px) {
       .login-section {
-        padding: 3rem 0;
+        padding: 1.5rem 0;
       }
       
       .login-form-container {
-        padding: 2rem;
+        padding: 1.5rem;
       }
       
       header .container {
@@ -383,9 +392,22 @@
         margin-top: 1rem;
       }
       
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      nav ul li {
+        margin: 0 0.5rem;
+      }
+      
       .minimal-footer .container {
         flex-direction: column;
         text-align: center;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
       }
     }
 
@@ -395,70 +417,118 @@
         align-items: flex-start;
         gap: 0.5rem;
       }
+      
+      .login-form-container {
+        padding: 1.25rem;
+      }
+      
+      .container {
+        padding: 0 0.75rem;
+      }
+      
+      .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .form-group input[type="text"],
+      .form-group input[type="password"] {
+        padding: 0.875rem 0.875rem 0.875rem 2.25rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+      }
+      
+      .login-image {
+        height: 150px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
     }
-	</style>
+
+    @media (max-width: 380px) {
+      .logo {
+        font-size: 1rem;
+      }
+      
+      nav ul li a {
+        font-size: 0.8rem;
+      }
+      
+      .login-form-container {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body class="login-page">
-<header>
-<div class="container">
-<div class="logo"><span>Tevex Prime Guard Security</span></div>
+  <header>
+    <div class="container">
+      <div class="logo"><span>Tevex Prime Guard Security</span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Return to Main Site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<nav>
-<ul>
-	<li><a href="index.html">Return to Main Site</a></li>
-</ul>
-</nav>
-</div>
-</header>
+  <main>
+    <section class="login-section">
+      <div class="container">
+        <div class="login-container">
+          <div class="login-image">
+            <img alt="Secure mailbox" src="https://media.istockphoto.com/id/471653421/photo/opening-mailbox.jpg?s=612x612&w=0&k=20&c=g_SeTuAaXYHCjKvL1-9qbY8jSgWiT9pRw-9_qxDTcXI=" />
+          </div>
+          <div class="login-form-container">
+            <h2>Client Portal</h2>
+            <p>Secure access to your valuable assets</p>
+            <form id="login-form" onsubmit="return validateLogin(event)">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input id="username" name="username" placeholder="Enter your username" required type="text" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-lock"></i>
+                  <input id="password" name="password" placeholder="Enter your password" required type="password" />
+                </div>
+              </div>
+              <div class="form-options">
+                <div class="remember-me">
+                  <input id="remember" name="remember" type="checkbox" />
+                  <label for="remember">Remember me</label>
+                </div>
+                <a class="forgot-password" href="#">Forgot Password?</a>
+              </div>
+              <div class="error-message" id="login-error"></div>
+              <button class="btn primary full-width" type="submit">Login to Your Vault</button>
+            </form>
+            <div class="login-footer">
+              <p>Need assistance? Contact our security team</p>
+              <p>+46 8 941 486 18</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<main>
-<section class="login-section">
-<div class="container">
-<div class="login-container">
-<div class="login-image"><img alt="" src="https://media.istockphoto.com/id/471653421/photo/opening-mailbox.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=g_SeTuAaXYHCjKvL1-9qbY8jSgWiT9pRw-9_qxDTcXI=" style="width: 612px; height: 408px;" /><img alt="" src="/api/placeholder/500/600" /></div>
+  <footer class="minimal-footer">
+    <div class="container">
+      <p>&copy; 2025 Tevex Prime Guard Security. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
 
-<div class="login-form-container">
-<h2>Client Portal</h2>
-
-<p>Secure access to your valuable assets</p>
-
-<form id="login-form" onsubmit="return validateLogin(event)">
-<div class="form-group"><label for="username">Username</label>
-
-<div class="input-with-icon"><input id="username" name="username" placeholder="Enter your username" required="" type="text" /></div>
-</div>
-
-<div class="form-group"><label for="password">Password</label>
-
-<div class="input-with-icon"><input id="password" name="password" placeholder="Enter your password" required="" type="password" /></div>
-</div>
-
-<div class="form-options">
-<div class="remember-me"><input id="remember" name="remember" type="checkbox" /> <label for="remember">Remember me</label></div>
-<a class="forgot-password" href="#">Forgot Password?</a></div>
-
-<div class="error-message" id="login-error"></div>
-<button class="btn primary full-width" type="submit">Login to Your Vault</button></form>
-
-<div class="login-footer">
-<p>Need assistance? Contact our security team</p>
-
-<p>+46 8 941 486 18</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-
-<footer class="minimal-footer">
-<div class="container">
-<p>&copy; 2025 Tevex Prime Guard Security. All rights reserved.</p>
-
-<div class="footer-links"><a href="#">Privacy Policy</a> <a href="#">Terms of Service</a></div>
-</div>
-</footer>
-<script>
+  <script>
     function validateLogin(event) {
       event.preventDefault();
       
@@ -477,5 +547,11 @@
         return false;
       }
     }
-  </script></body>
+    
+    // Add touch-friendly class to buttons for mobile devices
+    if ('ontouchstart' in window) {
+      document.body.classList.add('touch-device');
+    }
+  </script>
+</body>
 </html>
