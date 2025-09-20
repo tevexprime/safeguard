@@ -1049,7 +1049,43 @@
 
         .back-to-top:hover {
             background-color: var(--primary-color);
+         /* Additional responsive adjustments */
+        @media (max-width: 992px) {
+            .logo img {
+                max-width: 150px;
+            }
+            .hero {
+                height: 50vh;
+                max-height: 400px;
+            }
         }
+        
+        @media (max-width: 768px) {
+            .logo img {
+                max-width: 120px;
+            }
+            .hero {
+                height: 40vh;
+                max-height: 350px;
+            }
+            .hero h1 {
+                font-size: 2rem; /* Reduced font size for mobile */
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo img {
+                max-width: 100px;
+            }
+            .hero {
+                height: 35vh;
+                max-height: 300px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }    
+    }
     </style>
 </head>
 <body>
