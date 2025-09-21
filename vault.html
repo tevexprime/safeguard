@@ -271,24 +271,6 @@
             align-items: flex-start;
             margin-bottom: 1.5rem;
             gap: 1rem;
-            position: relative;
-        }
-
-        .idle-timer {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: #f8f9fa;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            display: none;
-        }
-
-        .idle-timer.warning {
-            background-color: #fff3cd;
-            color: #856404;
         }
 
         .action-buttons {
@@ -645,44 +627,6 @@
             cursor: pointer;
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-        .modal h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .modal p {
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
         /* Responsive */
         @media (min-width: 768px) {
             .container {
@@ -843,7 +787,6 @@
         <main class="dashboard-main">
             <div class="dashboard-header">
                 <h1>Your Secure Vault</h1>
-                <div class="idle-timer" id="idleTimer">Session expires in 1:30</div>
                 
                 <div class="action-buttons">
                     <button class="btn secondary">Print Inventory</button>
@@ -900,7 +843,7 @@
                             <h3>Alluvial Gold Bars</h3>
                             <div class="vault-item-info">
                                 <span>96 Kg</span>
-                                <span>Vault Section A</span>
+                                <p><span>Vault Section A</span></p>
                             </div>
                             <p>High-purity alluvial gold bars stored in a climate-controlled, maximum security section.</p>
                             <div class="vault-item-actions">
@@ -918,7 +861,7 @@
                             <h3>Uncut Diamond</h3>
                             <div class="vault-item-info">
                                 <span>97 Carats</span>
-                                <span>High Security Case</span>
+                                <p><span>High Security Case</span></p>
                             </div>
                             <p>Rare uncut diamond stored in a specialized high-security case with biometric access control.</p>
                             <div class="vault-item-actions">
@@ -936,7 +879,7 @@
                             <h3>Painting Collection</h3>
                             <div class="vault-item-info">
                                 <span>29 Pieces</span>
-                                <span>Art Vault C</span>
+                                <p><span>Art Vault C</span></p>
                             </div>
                             <p>Collection of valuable paintings stored in a climate-controlled, light-regulated environment.</p>
                             <div class="vault-item-actions">
@@ -954,7 +897,7 @@
                             <h3>Ancient Sculptures</h3>
                             <div class="vault-item-info">
                                 <span>42 Pieces</span>
-                                <span>Antiquities Section</span>
+                                <p><span>Antiquities Section</span></p>
                             </div>
                             <p>Collection of ancient sculptures with customized mounting and preservation systems.</p>
                             <div class="vault-item-actions">
@@ -972,7 +915,7 @@
                             <h3>German Spotty Onionskin Marble Sculpture</h3>
                             <div class="vault-item-info">
                                 <span>Rare Collection</span>
-                                <span>Special Exhibit Section</span>
+                                <p><span>Special Exhibit Section</span></p>
                             </div>
                             <p>Rare German Spotty Onionskin Marble sculptures with specialized preservation protocols.</p>
                             <div class="vault-item-actions">
@@ -1111,18 +1054,6 @@
         </div>
     </footer>
 
-    <!-- Idle Timeout Modal -->
-    <div class="modal" id="idleModal">
-        <div class="modal-content">
-            <h2>Session Timeout Warning</h2>
-            <p>You will be logged out due to inactivity in <span id="countdown">90</span> seconds.</p>
-            <div class="modal-buttons">
-                <button class="btn primary" id="stayLoggedIn">Stay Logged In</button>
-                <button class="btn secondary" id="logoutNow">Logout Now</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         // Simple dropdown toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1150,22 +1081,6 @@
                 }
             });
         });
-
-        // Idle timeout functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            let idleTimer;
-            let idleWarningTimer;
-            let idleTimeout = 90; // 1 minute 30 seconds in seconds
-            let warningTime = 15; // Show warning 15 seconds before timeout
-            let warningTimer;
-            
-            const idleTimerElement = document.getElementById('idleTimer');
-            const idleModal = document.getElementById('idleModal');
-            const countdownElement = document.getElementById('countdown');
-            const stayLoggedInBtn = document.getElementById('stayLoggedIn');
-            const logoutNowBtn = document.getElementById('logoutNow');
-            
-            // Function to reset the idle timer
-            function resetIdleTimer() {
-                clearTimeout(idleTimer);
-                clearTimeout(idle
+    </script>
+</body>
+</html>
