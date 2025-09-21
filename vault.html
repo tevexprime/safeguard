@@ -380,10 +380,10 @@
             margin-bottom: 0;
         }
 
-        /* Vault Items - FIXED FOR DESKTOP */
+        /* Vault Items */
         .vault-items-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
@@ -393,9 +393,6 @@
             box-shadow: var(--box-shadow);
             overflow: hidden;
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
         }
 
         .vault-item:hover {
@@ -411,9 +408,6 @@
 
         .vault-item-details {
             padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         .vault-item-info {
@@ -428,8 +422,7 @@
         .vault-item-actions {
             display: flex;
             gap: 1rem;
-            margin-top: auto;
-            padding-top: 1.5rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -957,7 +950,7 @@
                         </div>
                     </div>
                     
-                    <div class="status-card {
+                    <div class="status-card">
                         <div class="status-icon secure"><i class="fas fa-radar"></i></div>
                         <div class="status-info">
                             <h3>Motion Detection</h3>
